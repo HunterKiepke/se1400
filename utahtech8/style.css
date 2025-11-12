@@ -1,0 +1,348 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    background: linear-gradient(to bottom, #eeeeee, #ffffff);
+    background-attachment: fixed;
+    color: #666666;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+#wrapper {
+    display: grid;
+    grid-auto-rows: minmax(0px, auto);
+    grid-template-columns: minmax(0px, 1fr) repeat(6, minmax(0, 175px)) minmax(0px, 1fr);
+    width: 100%;
+    max-width: 2048px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    box-shadow: 0px 3px 3px rgba(66, 66, 66, 0.3);
+}
+
+/* Full-width colored bars as requested */
+#bluebar {
+    background-color: #003058;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    /* fill the full height of the grid row */
+    height: 100%;
+    align-self: stretch;
+    min-height: 6px;
+}
+
+#greybar {
+    background-color: #424242;
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    /* fill the full height of the grid row */
+    height: 100%;
+    align-self: stretch;
+    min-height: 6px;
+}
+
+header {
+    grid-column: 2 / -2;
+    grid-row: 1 / 2;
+    background-color: #003058;
+    color: #FFFFFF;
+    font-family: Georgia, serif;
+}
+
+header h1 {
+    margin: 0;
+    line-height: 140%;
+    padding: .5rem;
+    background-image: url(utahtechlogo.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    padding-left: 1em;
+}
+
+header a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+nav {
+    grid-column: 2 / -2;
+    grid-row: 2 / 3;
+    background-color: #424242;
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-flow: row nowrap;
+    list-style-type: none;
+}
+
+nav ul li {
+    width: 100%;
+}
+
+nav a {
+    color: #FFFFFF;
+    padding: 1rem 0rem;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.5s ease-out;
+}
+
+nav a:hover {
+    background-color: #BA1C21;
+}
+
+/* Hero areas occupy row 3 by default and span the full grid columns */
+#homehero,
+#studenthero,
+#facultyhero,
+#alumnihero {
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#homehero {
+    background-image: url(homehero.jpg);
+}
+
+#studenthero {
+    background-image: url(studenthero.jpg);
+}
+
+#facultyhero {
+    background-image: url(facultyhero.jpg);
+}
+
+#alumnihero {
+    background-image: url(alumnihero.jpg);
+}
+
+main {
+    grid-column: 2 / -2;
+    grid-row: 4 / 5;
+    background: #ffffff;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+main img {
+    float: right;
+    padding-left: 2rem;
+    /* keep images from growing larger than intended on wide or high-resolution displays */
+    max-width: 300px;
+    height: auto;
+}
+
+/* Video: float on large screens, full-width and stacked on smaller screens */
+video {
+    float: right;
+    margin-left: 2rem;
+    max-width: 480px;
+    width: 480px;
+    height: auto;
+}
+
+footer {
+    grid-column: 2 / -2;
+    grid-row: 5 / 6;
+    font-size: .70rem;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem;
+}
+
+h2 {
+    color: #424242;
+    font-family: Georgia, serif;
+}
+
+h3 {
+    color: #003058;
+}
+
+dt {
+    color: #003058;
+    font-weight: bold;
+}
+
+.ut {
+    color: #BA1C21;
+    font-weight: bold;
+}
+
+/* Table styles for Students page */
+table {
+    margin: 0 auto;
+    border: 1px solid #424242;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 5px;
+    border: 1px solid #424242;
+}
+
+td {
+    text-align: center;
+}
+
+.text {
+    text-align: left;
+}
+
+tr:nth-of-type(even) {
+    background-color: #F3F3F3;
+}
+
+/* Form styles for Alumni page */
+form {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: 200px 1fr;
+    gap: 0.75rem;
+    width: 100%;
+    align-items: center;
+}
+
+input,
+textarea {
+    font-size: 1rem;
+    padding: 10px;
+    color: #666666;
+    background-color: #fafafa;
+    border: none;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    background-color: #f0f0f0;
+}
+
+label {
+    padding: 10px;
+    text-align: right;
+}
+
+#mySubmit {
+    width: 10rem;
+    grid-column: 2 / 3;
+}
+
+/* Medium Desktop: 1100px and below */
+@media only screen and (max-width: 1100px) {
+    #wrapper {
+        grid-template-columns: minmax(0px, 1fr) repeat(6, minmax(0, 150px)) minmax(0px, 1fr);
+    }
+}
+
+/* Tablet: 900px and below */
+@media only screen and (max-width: 900px) {
+    nav {
+        grid-row: 2 / 3;
+        grid-column: 1 / 5;
+        position: static;
+    }
+
+    nav ul {
+        flex-flow: column nowrap;
+    }
+
+    #homehero,
+    #studenthero,
+    #facultyhero,
+    #alumnihero {
+        grid-row: 2 / 3;
+        grid-column: 5 / 8;
+        height: auto;
+    }
+
+    main img {
+        /* keep image floated to the right so it sits beside the description list like utahtech4 */
+        float: right;
+        width: auto;
+        max-width: 300px;
+        height: auto;
+        padding-left: 0px;
+        margin-left: 1rem;
+    }
+
+    /* Make embedded video responsive on tablet and smaller */
+    video {
+        float: none;
+        margin: 0 0 1rem 0;
+        width: 100%;
+        height: auto;
+        max-width: none;
+    }
+}
+
+/* Mobile: 600px and below */
+@media only screen and (max-width: 600px) {
+    header h1 {
+        background-image: none;
+        text-align: center;
+    }
+
+    nav {
+        grid-row: 2 / 3;
+        grid-column: 1 / -1;
+    }
+
+    #homehero,
+    #studenthero,
+    #facultyhero,
+    #alumnihero {
+        display: none;
+    }
+}
+
+/* 601px-700px: use the same layout as the tablet (<=900px) breakpoint */
+@media only screen and (max-width: 700px) and (min-width: 601px) {
+
+    /* Use the tablet/nav stacking behavior */
+    nav {
+        grid-row: 2 / 3;
+        grid-column: 1 / 5;
+        position: static;
+    }
+
+    nav ul {
+        flex-flow: column nowrap;
+    }
+
+    #homehero,
+    #studenthero,
+    #facultyhero,
+    #alumnihero {
+        grid-row: 2 / 3;
+        grid-column: 5 / 8;
+        height: auto;
+    }
+
+    main img {
+        float: none;
+        width: 100%;
+        height: auto;
+        padding-left: 0px;
+    }
+
+    nav ul li {
+        width: auto;
+        flex: 1 1 auto;
+    }
+}
