@@ -134,6 +134,9 @@ main {
 main img {
     float: right;
     padding-left: 2rem;
+    /* keep images from growing larger than intended on wide or high-resolution displays */
+    max-width: 300px;
+    height: auto;
 }
 
 footer {
@@ -192,10 +195,13 @@ dt {
     }
 
     main img {
-        float: none;
-        width: 100%;
+        /* keep image floated to the right so it sits beside the description list like utahtech4 */
+        float: right;
+        width: auto;
+        max-width: 300px;
         height: auto;
         padding-left: 0px;
+        margin-left: 1rem;
     }
 }
 
