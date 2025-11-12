@@ -27,14 +27,20 @@ body {
     background-color: #003058;
     grid-column: 1 / -1;
     grid-row: 1 / 2;
-    height: 6px;
+    /* fill the full height of the grid row */
+    height: 100%;
+    align-self: stretch;
+    min-height: 6px;
 }
 
 #greybar {
     background-color: #424242;
     grid-column: 1 / -1;
     grid-row: 2 / 3;
-    height: 6px;
+    /* fill the full height of the grid row */
+    height: 100%;
+    align-self: stretch;
+    min-height: 6px;
 }
 
 header {
