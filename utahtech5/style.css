@@ -195,13 +195,13 @@ dt {
     }
 
     main img {
-        /* keep image floated to the right so it sits beside the description list like utahtech4 */
-        float: right;
-        width: auto;
-        max-width: 300px;
+        /* on tablet and smaller screens images should not float; show full-width */
+        float: none;
+        width: 100%;
         height: auto;
         padding-left: 0px;
-        margin-left: 1rem;
+        margin-left: 0;
+        max-width: none;
     }
 }
 
