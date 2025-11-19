@@ -1,0 +1,480 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f3f4f5;
+}
+
+:root {
+  --accent: #ff6a3d;
+  /* orange accent */
+  --dark-band: #34363a;
+  /* dark charcoal for bands */
+  --card-bg: #ffffff;
+  /* card background */
+  --muted: #6e6e6e;
+  /* muted text */
+  --text: #222222;
+  /* primary text */
+  --footer-border: #ececec;
+}
+
+/* Utility: visually hidden but accessible text (for headings that shouldn't be visible) */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ---------- MAIN GRID ---------- */
+main {
+  display: grid;
+  grid-template-columns: minmax(0px, 1fr) repeat(6, minmax(0, 175px)) minmax(0px, 1fr);
+  gap: 20px;
+  padding: 20px 0;
+}
+
+/* make the hero full width and white so there's a white/gray cutoff */
+main>section.hero {
+  grid-column: 1 / -1;
+  background: var(--card-bg);
+  padding: 48px 0;
+}
+
+/* wrapper for the dark band that spans full width (wrap scores/news/games) */
+.dark-band {
+  grid-column: 1 / -1;
+  background: var(--dark-band);
+  padding: 24px 0 60px 0;
+}
+
+/* ensure each main section sits in the central 6 columns */
+main>section {
+  grid-column: 2 / 8;
+}
+
+/* container aligns content with the central 6 columns */
+.container {
+  grid-column: 2 / 8;
+  max-width: calc(6 * 175px + 40px);
+  /* allow some breathing room */
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  grid-column: 1 / -1;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+}
+
+.logo {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.logo-highlight {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.site-nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #7a7a7a;
+  font-size: 14px;
+}
+
+.search {
+  font-size: 18px;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  padding: 40px 0;
+  background: transparent;
+  /* let the main dark band show */
+}
+
+.hero-card {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  background: var(--card-bg);
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-copy {
+  flex: 1 1 420px;
+}
+
+.hero-image {
+  flex: 0 0 420px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: block;
+}
+
+.kicker {
+  display: inline-block;
+  background: #fff3f0;
+  color: var(--accent);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  margin: 12px 0 12px;
+  font-size: 32px;
+  color: var(--text);
+  line-height: 1.05;
+}
+
+.lead {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.hero-ctas {
+  margin-top: 18px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-outline {
+  border: 1px solid #b7b7b7;
+  color: #666;
+  background: transparent;
+}
+
+/* ---------- SECTION HEADINGS ---------- */
+.section-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.section-heading-row h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #e6e6e6;
+}
+
+.small-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+/* ---------- SCORES (dark band) ---------- */
+.scores {
+  background: transparent;
+  padding: 30px 0;
+  color: #fff;
+}
+
+.scores-inner {
+  padding: 10px 0;
+}
+
+.scores-grid {
+  display: flex;
+  gap: 16px;
+}
+
+.score-card {
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 14px;
+  border-radius: 8px;
+  min-width: 180px;
+  flex: 1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.score-status {
+  font-size: 12px;
+  color: #9a9a9a;
+  margin-bottom: 8px;
+}
+
+.teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.score {
+  font-weight: 800;
+}
+
+/* ---------- NEWS ---------- */
+.news {
+  background: transparent;
+  padding: 40px 0;
+  color: #fff;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.news-card {
+  background: var(--card-bg);
+  color: var(--text);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.news-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.news-card-body {
+  padding: 14px;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.news-card h3 {
+  margin: 8px 0 8px;
+  font-size: 16px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ---------- GAMES ---------- */
+.games {
+  background: transparent;
+  padding: 40px 0;
+  color: #fff;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.game-card {
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.game-week {
+  font-size: 12px;
+  color: #9a9a9a;
+  margin-bottom: 6px;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  grid-column: 1 / -1;
+  background: var(--card-bg);
+  border-top: 1px solid var(--footer-border);
+}
+
+.footer-top {
+  padding: 40px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.footer-col h5,
+.footer-col h4 {
+  margin: 0 0 8px 0;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 6px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #f5f5f5;
+  padding: 12px 0;
+  color: #999;
+}
+
+.footer-bottom .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Media query: less than 992px (tablet/medium) */
+@media (max-width: 991px) {
+
+  /* Collapse the outer grid so sections span the center area, but constrain center column */
+  main {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  /* center column becomes 768px wide */
+  .container {
+    grid-column: 1 / -1;
+    max-width: 768px;
+    width: 100%;
+    padding: 0 16px;
+    margin: 0 auto;
+  }
+
+  main>section {
+    grid-column: 1 / -1;
+  }
+
+  .hero-card {
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .news-grid,
+  .games-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .scores-grid {
+    flex-wrap: wrap;
+  }
+}
+
+/* Media query: 768px and below (mobile) */
+@media (max-width: 768px) {
+
+  /* make the layout single-column and hide side gutters */
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    grid-column: 1 / -1;
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  main>section {
+    grid-column: 1 / -1;
+  }
+
+  /* Stack hero content vertically */
+  .hero-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .hero-image {
+    width: 100%;
+    order: 2;
+  }
+
+  .hero-copy {
+    order: 1;
+  }
+
+  /* Responsive image and grid fallbacks */
+  .news-grid,
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scores-grid {
+    flex-direction: column;
+  }
+
+  /* Mobile nav: wrap items and center */
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .site-nav a {
+    margin: 6px 8px;
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom .container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}
+
+/* End of file - removed debug grid-color rules */
